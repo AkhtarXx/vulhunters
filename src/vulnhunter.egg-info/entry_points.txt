@@ -1,0 +1,2 @@
+[console_scripts]
+vulnhunter = vulnhunter.unified_cli:app

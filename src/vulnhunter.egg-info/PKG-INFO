@@ -1,0 +1,127 @@
+Metadata-Version: 2.4
+Name: vulnhunter
+Version: 1.0.0
+Summary: Autonomous Smart Contract Security Testing - Anthropic SCONE-bench Style
+Author: VulnHunter Team
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: google-genai>=0.1.0
+Requires-Dist: mcp>=0.1.0
+Requires-Dist: loguru>=0.7.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pydantic-settings>=2.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: aiohttp>=3.9.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: rich>=13.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: mypy>=1.5.0; extra == "dev"
+
+# VulnHunter 🔍🔗
+
+> **AI-Powered Blockchain Smart Contract Vulnerability Detection System**
+
+An advanced multi-agent AI system that uses Google's Gemini API to detect vulnerabilities in EVM/Solidity smart contracts. Built with a unique **Adversarial Debate Architecture** where AI agents argue like an attacker vs defender.
+
+## 🌟 Unique Features
+
+### 1. **Adversarial Multi-Agent Debate**
+Unlike typical sequential analysis, our agents engage in structured debates:
+- 🔴 **Red Team Agent**: Thinks like an attacker, generates exploit hypotheses
+- 🔵 **Blue Team Agent**: Defends code, finds counterarguments
+- 🟡 **Judge Agent**: Evaluates arguments, decides final verdict
+
+### 2. **Intelligent Scope Analysis**
+- 🧠 **Auto-Detection**: Automatically parses `scope.txt` or `README.md` to identify in-scope files.
+- 💾 **Context Caching**: Caches contract context once and reuses it across all agents, saving **80% of tokens**.
+
+### 3. **Deep Research & MCP**
+- 🔬 **Deep Research**: Integrated Google `deep-research` agent to study historical exploits (e.g., "Euler Finance hack").
+- 🔌 **MCP Integration**: Connects agents to external tools (Slither, Mythril) via Model Context Protocol.
+
+### 4. **Unique Bug Detection Agents**
+- 🎯 **Intent Mismatch**: Detects deviations between NatSpec/comments and code behavior.
+- 🔓 **Assumption Breaker**: Identifies and challenges hidden developer assumptions.
+- 🔗 **Invariant Discovery**: Automatically infers and verifies system invariants.
+
+## 🚀 Quick Start
+
+```bash
+# Clone and enter directory
+cd bugbounty
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or: venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -e .
+
+# Add your Gemini API key to .env
+# GEMINI_API_KEY=your_key_here
+
+# Run the analyzer
+# Run intelligent audit (auto-detects scope + enables caching)
+vulnhunter audit 2025-12-panoptic/ --cache
+
+# Research historical exploits
+vulnhunter research "Euler Finance hack 2023"
+
+# Manual analysis
+vulnhunter analyze contracts/MyContract.sol
+
+```
+
+## 📁 Project Structure
+
+```
+vulnhunter/
+├── src/vulnhunter/
+│   ├── agents/          # Multi-agent system
+│   │   ├── red_team.py      # Attacker mindset
+│   │   ├── blue_team.py     # Defender mindset
+│   │   ├── judge.py         # Verdict agent
+│   │   └── orchestrator.py  # Debate coordinator
+│   ├── mcp_servers/     # Security tool integration
+│   ├── gemini/          # Gemini API wrappers
+│   └── knowledge/       # Vulnerability patterns
+├── tests/               # Test suite
+└── contracts/           # Sample contracts
+```
+
+## 🔧 Requirements
+
+- Python 3.11+
+- Gemini API Key (with Deep Research access)
+- Optional: Slither, Mythril, Echidna for enhanced analysis
+
+## 📖 Documentation
+
+See [docs/](docs/) for detailed documentation.
+
+## 🎯 Supported Vulnerability Types
+
+| Vulnerability | Detection Method |
+|--------------|-----------------|
+| Reentrancy | Static + Symbolic + Debate |
+| Integer Overflow | Symbolic Execution |
+| Access Control | Pattern Matching + AI |
+| Oracle Manipulation | Exploit Chain Analysis |
+| Flash Loan Attacks | Historical Pattern Learning |
+| MEV Attacks | Transaction Simulation |
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE) for details.
+Slither static analyitics
+adyrn
+kidna
+foundry 
+certora
+halmous
+mythrill
