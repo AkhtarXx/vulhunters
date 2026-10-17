@@ -1,0 +1,7 @@
+[profile.default]
+src = "src"
+test = "test"
+ffi = false
+fs_permissions = []
+fuzz = { runs = 64 }
+invariant = { runs = 32, depth = 16 }

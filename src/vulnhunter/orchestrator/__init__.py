@@ -1,5 +1,5 @@
 """Autonomous orchestrator module."""
 
-from .autonomous import AutonomousOrchestrator, AuditResult, quick_audit
+from .autonomous import AuditResult, AutonomousOrchestrator, quick_audit
 
-__all__ = ["AutonomousOrchestrator", "AuditResult", "quick_audit"]
+__all__ = ["AuditResult", "AutonomousOrchestrator", "quick_audit"]

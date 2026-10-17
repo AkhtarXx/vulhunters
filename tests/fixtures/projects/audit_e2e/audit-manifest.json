@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "protocol": "Vault fixture",
+  "chain": "ethereum",
+  "entrypoints": ["src/Vault.sol"],
+  "assets": ["ETH deposited in Vault"],
+  "actors": ["depositor"],
+  "trust_boundaries": ["Depositors are untrusted callers of deposit and withdraw"],
+  "invariants": [
+    {
+      "id": "SOLVENCY",
+      "statement": "Vault ETH balance is at least totalDeposits",
+      "forge_test": "test/Vault.t.sol:VaultTest::invariant_Solvency()"
+    }
+  ]
+}
